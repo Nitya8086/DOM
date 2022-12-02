@@ -67,6 +67,81 @@ for(var i=0; i<odd.length;i++){
     odd[i].style.backgroundColor = 'green';
 }
 
+TRANSVERSING THE DOM
+
+var itemList = document.querySelector('#items');
+//parentNode
+console.log(itemList.parentNode);
+itemList.parentNode.style.backgroundColor = '#f4f4f4';
+console.log(itemList.parentNode.parentNode);
+
+var itemList = document.querySelector('#items');
+//parentNode
+console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor = '#f4f4f4';
+console.log(itemList.parentElement.parentElement);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.childNodes);
+console.log(itemList.children);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.lastElementChild);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.lastChild);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.firstElementChild);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.firstChild);
+itemList.firstChild.textContent = 'ladli';
+
+nextsibling //
+
+var itemList = document.querySelector('#items');
+console.log(itemList.nextSibling);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.nextElementSibling);
+
+privous sibling
+
+var itemList = document.querySelector('#items');
+console.log(itemList.previousSibling);
+
+var itemList = document.querySelector('#items');
+console.log(itemList.previousElementSibling);
+
+//creat element
+
+//creat a div
+
+var newDiv = document.createElement('div');
+//add class
+newDiv.className = 'Hello';
+//add id
+newDiv.id = 'hello1';
+//add attribute
+newDiv.setAttribute('title','hello div');
+
+//creat textnode
+
+var newDivText = document.createTextNode('Hello Dom');
+
+//appent child node
+
+newDiv.appendChild(newDivText);
+var node  = document.createElement("li");
+
+var textnode = document.createTextNode('Item 5');
+node.appendChild(textnode);
+
+console.log(node);
+
+
+
 
 
 
