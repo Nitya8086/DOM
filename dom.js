@@ -56,3 +56,4 @@ console.log(items[3]);
 items[1].textContent = 'Hello 2';
 items[1].style.fontWeight = 'bold';
 items[1].style.backgroundColor = 'green';
+items[2].style.display = 'none';
