@@ -140,6 +140,19 @@ node.appendChild(textnode);
 
 console.log(node);
 
+var newDivText = document.createTextNode('Hello ');
+
+//appent child node
+
+newDiv.appendChild(newDivText);
+
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+console.log(newDiv);
+container.insertBefore(newDiv , h1);
+
+
 
 
 
