@@ -57,3 +57,11 @@ items[1].textContent = 'Hello 2';
 items[1].style.fontWeight = 'bold';
 items[1].style.backgroundColor = 'green';
 items[2].style.display = 'none';
+
+var odd = document.querySelectorAll('li:nth-child(odd)');
+for(var i=0; i<odd.length;i++){
+    odd[i].style.backgroundColor = 'green';
+}
+
+
+
