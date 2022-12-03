@@ -16,6 +16,7 @@ function addItem(e){
 
     //get input value
     var newItem = document.getElementById('item').value;
+     var descriptionNode = document.getElementById('description').value;
 
     //create new li element
     var li = document.createElement('li');
@@ -25,6 +26,8 @@ function addItem(e){
     // console.log(li);
 
     //add text node with input
+     var description = document.createElement(description);
+    li.appendChild(document.createTextNode(descriptionNode));
     li.appendChild(document.createTextNode(newItem));
 
     //add delete button
