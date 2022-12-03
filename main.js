@@ -64,7 +64,16 @@ function removeItem(e){
 // filter item
 function filterItems(e){
     var text = e.target.value.toLowerCase();
-    console.log(text);
-}
+    var items =  itemList.getElementsByTagName('li');
+    // console.log(items);
+    //conver to array
+    Array.from(items).forEach(function(item){
+    var itemName = item.firstChild.textContent;
+   if(itemName.toLocaleLowerCase().indexOf(text) != -1){
+    item.style.display = 'block';
+   }
+   else{
+    item.style.display = 'none';
+   }
 
 
