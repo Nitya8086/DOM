@@ -63,6 +63,7 @@ localStorage.setItem("myObj",myObj_serialized);
 
  JSON.parse(localStorage.getItem("myObj"));
 console.log(myObj);
+
 </script>
     
 
