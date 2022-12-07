@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Stroge</title>
+</head>
+<body>
+    <form onsubmit="saveToLocalstorage(event)">
+        <h1> Booking Appointment App</h1>
+    <label>Name</label><br>
+    <input type="text" name="username" required/><br>
+    <label>Email-ID</label><br>
+    <input type="text" name="emailId" required/><br>
+    <label>phoneNumber</label><br>
+    <input type="tel" name="phoneNumber" required/><br>
+    <button>submit</button>
+</form>
+<ul id="userRegistration"></ul>
+<script>
+    function saveToLocalstorage(event){
+        event.preventDefault();
+        const name=event.target.username.value;
+        const email=event.target.emailId.value;
+        const phone=event.target.phoneNumber.value;
+        localStorage.setItem('name',name);
+        localStorage.setItem('emailId',email);
+        localStorage.setItem('tel', phone);
+        const userDetails={
+            name,
+            email,
+            phone
+        }
+        localStorage.setItem(userDetails.email,JSON.stringify(userDetails))
+        showNewUserOnDisplay(userDetails)
+    }
+    function showNewUserOnDisplay(user){
+        const parentNode=document.getElementById('userRegistration')
+        const childNode= `<li> ${user.name} - ${user.email} - ${user.phone} </li>`
+
+        parentNode.innerHTML=parentNode.innerHTML+childNode;
+    }
+</script>
+</body>
+</html>
