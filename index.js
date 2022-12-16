@@ -1,78 +1,69 @@
 
-function saveToLocalStorage(event){
-  event.preventDefault();
+class student{
 
-  const name = event.target.name.value;
-  const email = event.target.email.value;
-  const phonenumber = event.target.phonenumber.value;
+    static count=0;  //static variable to call
 
-  const users = {
-    name ,
-    email,phonenumber 
+    
 
-  }
-  console.log(users);
+   constructor(name,age,ph_no,marks){
 
-  localStorage.setItem(email,JSON.stringify(users));
-  showNewUserOnScreen(obj)
-  
-  
+       this.name=name;
+
+       this.age=age;
+
+       this.ph_no=ph_no;
+
+       this.marks=marks;
+
+       student.countStudent();
+
+   }
+
+   static countStudent(){
+
+       
+
+       return(student.count++);     //this is how u access static variable
+
+   }
+
+   eligible(){
+
+       if(this.marks >=40){
+
+           console.log(`${this.name} age ${age} is eligible`);
+
+       }
+
+       else if(this.marks<40){
+
+           console.log(`${this.name} age ${age} is not eligible`);
+
+       }
+
+   }
+
 }
-window.addEventListener("DOMContentLoaded", () => {
-                const localStorageObj = localStorage;
-                const localstoragekeys  = Object.keys(localStorageObj)
 
-                for(var i =0; i< localstoragekeys.length; i++){
-                    const key = localstoragekeys[i]
-                    const userDetailsString = localStorageObj[key];
-                    const userDetailsObj = JSON.parse(userDetailsString);
-                    showNewUserOnScreen(userDetailsObj)
-                }
-            })
+const Riya=new student('Riya',18,1234,34);
 
-            function showNewUserOnScreen(user){
-                document.getElementById('email').value = '';
-                document.getElementById('username').value = '';
-                document.getElementById('phonenumber').value ='';
-                // console.log(localStorage.getItem(user.emailId))
-                if(localStorage.getItem(user.email) !== null){
-                    removeUserFromScreen(user.email)
-                }
+const Hiya=new student('Hiya',15,2345,35);
 
-                const parentNode = document.getElementById('listOfUsers');
-                const childHTML = `<li id=${user.email}> ${user.name} - ${user.email}
-                                        <button onclick=deleteUser('${user.email}')> Delete User </button>
-                                        <button onclick=editUserDetails('${user.email}','${user.name}','${user.phonenumber}')>Edit User </button>
-                                     </li>`
+const Diya=new student('Diya',16,4567,60);
 
-                parentNode.innerHTML = parentNode.innerHTML + childHTML;
-            }
+const Siya=new student('Siya',17,7891,70);
 
-            //Edit User
+const Rooh=new student('Rooh',19,3456,80);
 
-            function editUserDetails(emailId, name, phonenumber){
+console.log(student.countStudent());
 
-                document.getElementById('email').value = emailId;
-                document.getElementById('username').value = name;
-                document.getElementById('phonenumber').value =phonenumber;
+Riya.eligible();
 
-                deleteUser(emailId)
-             }
+Hiya.eligible();
 
-            // deleteUser('abc@gmail.com')
+Diya.eligible();
 
-            function deleteUser(emailId){
-                console.log(emailId)
-                localStorage.removeItem(emailId);
-                removeUserFromScreen(emailId);
+Siya.eligible();
 
-            }
-
-            function removeUserFromScreen(emailId){
-                const parentNode = document.getElementById('listOfUsers');
-                const childNodeToBeDeleted = document.getElementById(emailId);
-                if(childNodeToBeDeleted) {
-                    parentNode.removeChild(childNodeToBeDeleted)
-                }
-            }
+Rooh.eligible();
 
