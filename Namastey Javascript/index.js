@@ -68,3 +68,33 @@ Siya.eligible();
 
 Rooh.eligible();
 
+
+
+// set age for placement
+class Student {
+
+    constructor(name,age ,mark){
+        this.name = name;
+        this.age = age;
+        this.mark= mark;
+    }
+    setPlacementAge(mainPlacementAge){
+        console.log(this);
+         return (minMarks)=>{
+
+            console.log('inisde eligibleForCurrentCompany',this);
+           if(this.marks > minMarks && this.age >mainPlacementAge){
+            console.log(this.name + " is eligible for placement");
+           }
+           else{
+            console.log(this.name + " is  not eligible for placement");
+           }
+         }
+    }
+}
+
+const Nitya     = new Student("nitya",23,60);
+const Satya     = new Student("Satya",21,50);
+Nitya.setPlacementAge(18)(40);
+
+
