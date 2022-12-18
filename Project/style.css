@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: Oleo Script,Courgette Verdana, Geneva, Tahoma, sans-serif;
+    margin: 15px 34px;
+    font-size: 17px;
+    padding: 10px;
+}
+.container{
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 2px solid lightgrey;
+    border-radius: 10px
+}
+  input[type = "submit"]{
+
+    background-color: #4daea1;
+    padding: 12px  20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50;
+    
+}
+input[type = "submit"]:hover{
+    background-color: green;
+}
