@@ -1,0 +1,40 @@
+.buttonFlex {
+    width: 653%;
+    background-color: orange;
+    font-weight: 700;
+    color: aliceblue;
+    border: thin;
+}
+
+.center {
+    margin-left: 25%;
+    margin-left: 25%;
+    border: solid orangered;
+    margin-top: -3%;
+}
+
+.bodyBackground {
+    background-attachment: fixed;
+    background-image: url('https://thumbs.dreamstime.com/b/yellow-white-geometric-abstract-background-wallpaper-yellow-white-geometric-abstract-background-195235657.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heading {
+    text-align: center;
+    color: darkorange;
+}
+
+.para {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.date {
+    padding-right: 40%;
+}
+
+.yav {
+    color: orangered;
+    text-decoration: underline
+}
