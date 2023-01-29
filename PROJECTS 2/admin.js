@@ -3,16 +3,16 @@ const name = document.getElementById("productname");
 let totalPrice = 0;
 const form = document.getElementById("my-form");
 const api =
-  "https://crudcrud.com/api/5c154f077de74c9e80e908d8dd6b1271/adminPage";
+  "https://crudcrud.com/api/828951a5802042d2a81067a3b2a4484c/adminPage";
 form.addEventListener("submit", storeLocal);
 //this will store all data to local storage;
-function storeLocal(e) {
+ async function storeLocal(e) {
   e.preventDefault();
   let details = {
     price: price.value,
-    name: name.value,
+    name: name.value
   };
-  axios
+  await axios
     .post(api, details)
     .then((respone) => {
       showData(respone.data);
@@ -38,9 +38,9 @@ function showData(details) {
   price.value = "";
   name.value = "";
 }
-function deleteDetails(detailsId) {
+async function deleteDetails(detailsId) {
   decrementPrice(detailsId);
-  axios
+  await axios
     .delete(`${api}/${detailsId}`)
     .then((respone) => {
       removeFromScreen(detailsId);
@@ -88,3 +88,5 @@ function decrementPrice(id) {
     showTotalPrice(0);
   });
 }
+
+
