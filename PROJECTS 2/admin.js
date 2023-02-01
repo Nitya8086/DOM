@@ -3,23 +3,27 @@ const name = document.getElementById("productname");
 let totalPrice = 0;
 const form = document.getElementById("my-form");
 const api =
-  "https://crudcrud.com/api/828951a5802042d2a81067a3b2a4484c/adminPage";
-form.addEventListener("submit", storeLocal);
+  "https://crudcrud.com/api/9c41991b5f6b4265862cb0ef358538b3/adminPage";
+form.addEventListener("submit", storeCrud);
 //this will store all data to local storage;
- async function storeLocal(e) {
+ async function storeCrud(e) {
   e.preventDefault();
   let details = {
     price: price.value,
     name: name.value
   };
-  await axios
+  try{
+    await axios
     .post(api, details)
     .then((respone) => {
       showData(respone.data);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+  }
+  
+  catch(e)
+  {
+      console.log("this is "+e)
+  }
 }
 function showData(details) {
   document.getElementById("sellingprice").value = "";
@@ -40,14 +44,17 @@ function showData(details) {
 }
 async function deleteDetails(detailsId) {
   decrementPrice(detailsId);
-  await axios
+  try{
+    await axios
     .delete(`${api}/${detailsId}`)
     .then((respone) => {
       removeFromScreen(detailsId);
     })
-    .catch((error) => {
-      console.log(error);
-    });
+  }
+  
+  catch(e){
+    console.log("this is "+e)
+  }
 }
 function removeFromScreen(detailsId) {
   const parentNode = document.getElementById("listdetails");
@@ -88,5 +95,3 @@ function decrementPrice(id) {
     showTotalPrice(0);
   });
 }
-
-
