@@ -3,7 +3,7 @@ const name = document.getElementById("productname");
 let totalPrice = 0;
 const form = document.getElementById("my-form");
 const api =
-  "https://crudcrud.com/api/9c41991b5f6b4265862cb0ef358538b3/adminPage";
+  "https://crudcrud.com/api/164099971b3741599d2d50c12f0a06bd/adminPage";
 form.addEventListener("submit", storeCrud);
 //this will store all data to local storage;
  async function storeCrud(e) {
@@ -28,9 +28,9 @@ form.addEventListener("submit", storeCrud);
 function showData(details) {
   document.getElementById("sellingprice").value = "";
   document.getElementById("productname").value = "";
-  if (localStorage.getItem(details.price) !== null) {
-    removeFromScreen(details.price);
-  }
+  // if (localStorage.getItem(details.price) !== null) {
+  //   removeFromScreen(details.price);
+  // }
   const parentNode = document.getElementById("listdetails");
   const childHTML = `<li id=${details._id}> ${details.price} - ${details.name} 
      <button onclick=deleteDetails('${details._id}')>Delete Product</button> 
@@ -64,8 +64,10 @@ function removeFromScreen(detailsId) {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  axios
+window.addEventListener("DOMContentLoaded", async () => {
+  try{
+     
+    await axios
     .get(api)
     .then((respone) => {
       console.log(respone);
@@ -75,10 +77,12 @@ window.addEventListener("DOMContentLoaded", () => {
         showData(respone.data[i]);
       }
     })
-    .catch((error) => {
-      console.log(error);
-    });
+  }
+  catch(e){
+    console.log("this is "+e)
+  }
 });
+
 function showTotalPrice(value) {
   totalPrice = totalPrice + value;
   const worth = document.getElementById("totalWorth");
